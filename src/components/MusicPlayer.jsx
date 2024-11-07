@@ -191,7 +191,7 @@ export default function MusicPlayer({ showConfetti, setShowConfetti, audioList }
 
     return (
         <>
-            <div className={`position-fixed bottom-0 w-100 podcast-player ${isMinimized ? "minimized" : ""}`}>
+            <div className={`podcast-player ${isMinimized ? "minimized" : ""}`}>
                 <div className={`maximize-minimize ${isMinimized ? "minimized" : ""}`} onClick={togglePlayerVisibility}>
                     {isMinimized ? <FaChevronUp color="#fff" /> : <FaChevronDown color="#fff" />}
                 </div>
@@ -208,39 +208,39 @@ export default function MusicPlayer({ showConfetti, setShowConfetti, audioList }
                     </div>
                 )}
                 {!isMinimized && (
-                    <div className="musicPlayerParent w-100 d-flex justify-content-between align-items-center position-relative">
-                        <div className="music-player-info d-flex">
+                    <div className="musicPlayerParent">
+                        <div className="music-player-info">
                             <div className="music-player-nav">
                                 <div
-                                    className="music-player-nav-right music-player-nav-buttons position-relative"
+                                    className="music-player-nav-right music-player-nav-buttons"
                                     onClick={handlePreviousEpisode}
                                 >
                                     <FiChevronLeft color="#fff" strokeWidth={3} />
                                 </div>
                                 <div
-                                    className="music-player-nav-left music-player-nav-buttons position-relative"
+                                    className="music-player-nav-left music-player-nav-buttons"
                                     onClick={handleNextEpisode}
                                 >
                                     <FiChevronRight color="#fff" strokeWidth={3} />
                                 </div>
                             </div>
-                            <div className="music-player-content d-flex flex-column justify-content-between">
+                            <div className="music-player-content">
                                 <div>
                                     <h4>{audioList[currentEpisodeIndex].Episode_name}</h4>
                                 </div>
-                                <div className="music-player-category align-items-center d-flex">
+                                <div className="music-player-category">
                                     <span className="">
                                         {audioList[currentEpisodeIndex].artist}
                                     </span>
                                 </div>
                             </div>
                         </div>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="d-flex">
+                        <div className="music-player-control-section">
+                            <div className="music-player-control-section-meta">
                                 <div className="player-skip-back-button player-buttons" onClick={skipBackward}>
                                     <span>-15s</span>
                                 </div>
-                                <div className="player-buttons playButton position-relative" onClick={togglePlay}>
+                                <div className="player-buttons playButton" onClick={togglePlay}>
                                     {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
                                 </div>
                                 <div className="player-jump-forward-button player-buttons" onClick={skipForward}>
@@ -264,7 +264,7 @@ export default function MusicPlayer({ showConfetti, setShowConfetti, audioList }
                                 </span>
                             </div>
 
-                            <div className="align-items-center music-player-time">
+                            <div className="music-player-time">
                                 <span className="music-player-currenttime">{formatTime(currentTime)}</span>
                                 <span>&nbsp;/&nbsp;</span>
                                 <span className="music-player-duration">{formatTime(duration)}</span>
@@ -275,7 +275,7 @@ export default function MusicPlayer({ showConfetti, setShowConfetti, audioList }
                             <div className="player-buttons" onClick={handleLikeClick}>
                                 {isLiked ? <FaHeart color="red" /> : <FaRegHeart />}
                             </div>
-                            <div className="player-buttons music-player-speed-button d-flex flex-column position-relative">
+                            <div className="player-buttons music-player-speed-button">
                                 <ul className="music-player-speed-change list-unstyled">
                                     {[2, 1.75, 1.5, 1.25, 1, 0.5].map((rate) => (
                                         <li key={rate} onClick={() => changePlaybackRate(rate)}>
