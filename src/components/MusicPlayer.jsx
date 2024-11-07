@@ -276,7 +276,7 @@ export default function MusicPlayer({ showConfetti, setShowConfetti, audioList }
                                 {isLiked ? <FaHeart color="red" /> : <FaRegHeart />}
                             </div>
                             <div className="player-buttons music-player-speed-button">
-                                <ul className="music-player-speed-change list-unstyled">
+                                <ul className="music-player-speed-change">
                                     {[2, 1.75, 1.5, 1.25, 1, 0.5].map((rate) => (
                                         <li key={rate} onClick={() => changePlaybackRate(rate)}>
                                             {rate}x
