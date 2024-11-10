@@ -171,6 +171,7 @@
     height: 10px;
     width: 500px;
     background-color: #ffffff4d;
+    border-radius: 5px;
     /* background: linear-gradient(45deg, white 25%, #aeb0aa 25%, #aeb0aa 50%, white 50%, white 75%, #aeb0aa 75%);
   background-size: 20px 20px;
   animation: move-stripes 10s linear infinite; */
@@ -198,6 +199,7 @@
     height: 10px;
     position: relative;
     transition: width 0.1s linear;
+    border-radius: 5px;
 }
 
 .music-player-progress:hover {
@@ -234,12 +236,45 @@
 
 .music-player-audio-button {
     margin-left: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
 }
 
 .music-player-audio-button:hover {
     background: #fff;
     color: #000;
-    transition: all 0.5s ease-in-out;
+    /* transition: all 0.5s ease-in-out; */
+}
+
+.music-player-audio-button .music-slider {
+    position: absolute;
+    bottom: 49px;
+    z-index: 9;
+    width: 60px;
+    padding-top: 10px;
+    display: none;
+}
+
+.music-player-audio-button:hover .music-slider {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.music-player-audio-button .music-slider .audio-slider {
+    height: 150px;
+    background: #191a1a;
+    width: 10px;
+    position: relative;
+}
+
+.music-player-audio-button .music-slider .audio-slider .audio-slider-progress {
+    position: absolute;
+    bottom: 0;
+    background: #d90000;
+    height: 91px;
+    width: 10px;
 }
 
 .music-player-speed-button {

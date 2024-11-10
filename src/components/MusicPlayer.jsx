@@ -270,6 +270,13 @@ export default function MusicPlayer({ showConfetti, setShowConfetti, audioList }
                                 <span className="music-player-duration">{formatTime(duration)}</span>
                             </div>
                             <div className="player-buttons music-player-audio-button" onClick={toggleMute}>
+                                <div className="music-slider">
+                                    <div className="audio-slider">
+                                        <div className="audio-slider-progress">
+                                            <span className="audio-scrubber"></span>
+                                        </div>
+                                    </div>
+                                </div>
                                 {isMuted ? <FaVolumeMute size={20} /> : <FaVolumeUp size={20} />}
                             </div>
                             <div className="player-buttons" onClick={handleLikeClick}>
